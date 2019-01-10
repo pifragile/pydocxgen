@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+before_install:
+  - "export PYTHONPATH=$PYTHONPATH:$(pwd)"
+install:
+  - pip install -r requirements.txt
+jobs:
+  include:
+    - stage: jobs
+      name: "Linter"
+      install: pip install flake8
+      script: flake8 .
+    - name: "Unit Tests"
+      script: pytest

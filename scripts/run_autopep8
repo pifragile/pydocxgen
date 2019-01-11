@@ -1,0 +1,5 @@
+#! /bin/sh
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+find $SCRIPTPATH/.. -name '*.py' -exec autopep8 --in-place '{}' \;

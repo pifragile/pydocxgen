@@ -1,0 +1,2 @@
+class InvalidXmlInputError(Exception):
+    pass

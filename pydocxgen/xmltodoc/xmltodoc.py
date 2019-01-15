@@ -1,6 +1,6 @@
 from lxml import etree
 from .errors import InvalidXmlInputError
-from pydocxgen.document.document import Document
+from pydocxgen.document.parts.document import Document
 
 
 def xmltodoc(xml):

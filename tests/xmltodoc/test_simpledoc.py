@@ -4,13 +4,18 @@ import pytest
 
 
 def test_empty_input():
-    with pytest.raises(InvalidXmlInputError):
+    with pytest.raises(InvalidXmlInputError) as e:
         xmltodoc('')
+    assert str(e.value) == 'xml should not be empty'
 
 
 def test_invalid_input():
-    with pytest.raises(InvalidXmlInputError):
+    with pytest.raises(InvalidXmlInputError) as e:
         xmltodoc('<doc></doc>')
+    expected_error_msg = \
+        '1:0 : Element \'doc\': No matching global declaration available ' \
+        'for the validation root.'
+    assert str(e.value) == expected_error_msg
 
 
 def test_valid_input():
